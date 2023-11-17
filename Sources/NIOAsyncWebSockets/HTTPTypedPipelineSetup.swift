@@ -60,8 +60,6 @@ extension ChannelPipeline {
     ///   - configuration: The HTTP pipeline's configuration.
     /// - Returns: An `EventLoopFuture` that will fire when the pipeline is configured. The future contains an `EventLoopFuture`
     /// that is fired once the pipeline has been upgraded or not and contains the `UpgradeResult`.
-    @available(macOS 13, iOS 16, tvOS 16, watchOS 9, *)
-    @_spi(AsyncChannel)
     public func configureUpgradableHTTPServerPipeline<UpgradeResult: Sendable>(
         configuration: NIOUpgradableHTTPServerPipelineConfiguration<UpgradeResult>
     ) -> EventLoopFuture<EventLoopFuture<UpgradeResult>> {
@@ -70,7 +68,6 @@ extension ChannelPipeline {
         )
     }
 
-    @available(macOS 13, iOS 16, tvOS 16, watchOS 9, *)
     private func _configureUpgradableHTTPServerPipeline<UpgradeResult: Sendable>(
         configuration: NIOUpgradableHTTPServerPipelineConfiguration<UpgradeResult>
     ) -> EventLoopFuture<EventLoopFuture<UpgradeResult>> {
@@ -101,8 +98,6 @@ extension ChannelPipeline.SynchronousOperations {
     /// - Parameters:
     ///   - configuration: The HTTP pipeline's configuration.
     /// - Returns: An `EventLoopFuture` that is fired once the pipeline has been upgraded or not and contains the `UpgradeResult`.
-    @available(macOS 13, iOS 16, tvOS 16, watchOS 9, *)
-    @_spi(AsyncChannel)
     public func configureUpgradableHTTPServerPipeline<UpgradeResult: Sendable>(
         configuration: NIOUpgradableHTTPServerPipelineConfiguration<UpgradeResult>
     ) throws -> EventLoopFuture<UpgradeResult> {
